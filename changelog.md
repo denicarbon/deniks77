@@ -1,0 +1,15 @@
+.idea
+.data/postgres
+.data/subquery
+.data/wireguard
+.data/traefik
+.data/grafana/datasources/*.yml
+.data/prometheus/*.yml
+.data/prometheus/prometheus.conf.d/*.yml
+.data/prometheus/prometheus.conf.d/subquery_deployment_metrics/*.yml
+.data/ipfs
+.data/.ipfs
+.env
+SubqueryIndexerHandbook.tar.gz
+.PACKAGE_USE_OVERRIDE
+src/docker/sh_exporter/scripts/.env

@@ -1,0 +1,33 @@
+version: "3"
+
+x-logging:
+  &default-logging
+  options:
+    max-file: '1'
+    compress: 'false'
+  driver: local
+
+networks:
+  indexer_services:
+    name: indexer_services
+    external: false
+  subquery_indexer:
+    name: subquery_indexer
+    external: false
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${DOCKER_SUBNET_MASK}/24
+
+services:
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    networks:
+      indexer_services:
+      subquery_indexer:
+        ipv4_address: ${DOCKER_SUBNET_PREFIX}.7
+#    labels:
+#      - traefik.http.routers.https.rule=Host(`${DOMAIN}`)#
+#      - traefik.http.routers.https.entrypoints=websecure
+#      - traefik.http.routers.https.tls=true
